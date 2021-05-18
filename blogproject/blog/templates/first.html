@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+안녕하세요 {{user.location}} {{user.nickname}} 님 {% endif %}
+<div class="first_page_box">
+  {% load static %}
+  <div class="community_blog_text">
+    <img src="{% static 'img/laugh.png' %}" alt="" />
+    <div>community</div>
+  </div>
+  <div class="smile_emoji">
+    <img src="{% static 'img/happiness.png' %}" alt="" />
+    <div>welcome! somin's blog</div>
+  </div>
+
+  <div class="upload_img_text">
+    <img src="{% static 'img/image.png' %}" alt="" />
+    <div>upload image</div>
+  </div>
+</div>
+
+<script
+  src="https://kit.fontawesome.com/6478f529f2.js"
+  crossorigin="anonymous"
+></script>
+{% endblock%}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  class="container"
+  style="
+    margin-top: 10px;
+    border: 2px solid rgb(219, 214, 214);
+    border-radius: 30px;
+  "
+>
+  <br />
+
+  <h2>제목: {{details.title}}</h2>
+  <p>작성일: {{details.pub_date}}</p>
+  <p>내용: {{details.body}}</p>
+  <!-- 이미지 보여주기 -->
+  {% if details.image %}
+  <img src="{{ details.image.url }}" alt="" height="600" />
+  <br />
+  {% endif %}
+  <a href="{% url 'edit' details.id%}">수정하기</a>
+  <a href="{% url 'delete' details.id%}">삭제하기</a>
+</div>
+{% endblock%}
