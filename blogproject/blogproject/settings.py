@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-e9z!tq%osjqtyp3bnh3*!lax5z7i9cm5=f3luowlrqc@dbw1%p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # 로그인 새로운 모델 요소 추가
 AUTH_USER_MODEL = 'account.CustomUser'

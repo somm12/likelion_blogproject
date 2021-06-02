@@ -1,3 +1,4 @@
+from django.core import paginator
 from django.shortcuts import render ,redirect, get_object_or_404
 from .models import Blog
 from django.core.paginator import Paginator
@@ -8,7 +9,10 @@ from .forms import BlogForm
 def first(request):
     return render(request,'first.html')
 def home(request):
-    blogs = Blog.objects #클래스 안에 있는 object를 변수에 넣는다. => querySet이라고 한다.
+    blogs = Blog.objects.all() #클래스 안에 있는 object를 변수에 넣는다. => querySet이라고 한다.
+    # paginator = Paginator(blogs,2)
+    # page = request.GET.get('page')
+    # blogs = paginator.get_page(page)
     return render(request,'home.html',{'blogs':blogs})
 
 def detail(request, blog_id):#read
