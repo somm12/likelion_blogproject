@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
+<div class="container" id="container_edit">
   <form
+    id="edit_form"
     action="{%url 'update' blogs.id%}"
     method="POST"
     enctype="multipart/form-data"
@@ -17,7 +18,9 @@
     <p>
       사진: <input type="file" name="image " value="{{ details.image.url }}" />
     </p>
-    <button type="submit">제출하기</button>
+    <div class="edit_btn_div">
+      <button type="submit" id="edit_btn">제출하기</button>
+    </div>
   </form>
 </div>
 {% endblock%}

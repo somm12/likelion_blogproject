@@ -1,9 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
-  <form action="{%url 'create'%}" method="POST" enctype="multipart/form-data">
+<div class="container" id="new_box">
+  <form
+    class="new_contentbox"
+    action="{%url 'create'%}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
     <!--enctype: 사진서버에 넘겨줄 수 있음.-->
     {%csrf_token%} {{form.as_p}}
-    <button type="submit">제출하기</button>
+    <div class="submitbtn">
+      <button class="new_content_submitbtn" type="submit">제출하기</button>
+    </div>
   </form>
 </div>
 {% endblock%}

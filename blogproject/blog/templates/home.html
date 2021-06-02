@@ -1,14 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 <div class="entire_card">
-  {% for blog in blogs.all%}
-  <div class="card" style="width: 25rem">
-    <div class="card-body">
-      <h5 class="card-title">{{blog.title}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
-      <p class="card-text">{{blog.summary}}</p>
-      <a class="card-link" href="{% url 'detail' blog.id%}">..more</a>
+  {% load static %} {% for blog in blogs.all%}
+  <a
+    class="card-link"
+    style="text-decoration: none; color: black; text-align: center"
+    id="detail_btn"
+    href="{% url 'detail' blog.id%}"
+  >
+    <div class="card" id="content_list_box">
+      <div class="card-body">
+        {% if blog.image %}
+        <img src="{{ blog.image.url }}" id="list_image" />
+        {% endif%}
+        <h5 class="card-title" id="list_title">{{blog.title}}</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+      <p class="card-text">{{blog.summary}}</p>-->
+      </div>
     </div>
-  </div>
+  </a>
   {% endfor%}
 </div>
 {% endblock%}

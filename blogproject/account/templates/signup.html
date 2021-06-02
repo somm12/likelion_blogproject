@@ -1,15 +1,26 @@
 {% extends 'base.html' %} {% block content %}
+<head>
+  {% load static %} {% block extrahead %}
+  <link rel="stylesheet" href='{% static "css/signup.css" %}' />
+  <title>EATTO | SIGNUP</title>
+  {% endblock %}
+</head>
 <div
-  class="login_title"
+  class="signup_title"
   style="margin-left: 70px; font-weight: 600; font-size: 30px"
 >
   Sign Up
 </div>
-<div class="container">
+<div class="container" id="signup_container">
   <form action="{% url 'signup' %}" method="POST">
     <!--enctype: 사진서버에 넘겨줄 수 있음.-->
-    {%csrf_token%} {{form.as_p}}
-    <button type="submit">제출하기</button>
+    {%csrf_token%}
+    <div>사용자 이름(*@/./+/-/_만 가능): {{form.username}}</div>
+    <div>비밀번호(*최소 8자이상,숫자만 입력 불가): {{form.password1}}</div>
+    <div>비밀번호 확인: {{form.password2}}</div>
+    <div>Nickname: {{form.nickname}}</div>
+    <div>Location: {{form.location}}</div>
+    <button type="submit" class="signup_btn">제출하기</button>
   </form>
 </div>
 {% endblock%}

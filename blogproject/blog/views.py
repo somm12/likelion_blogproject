@@ -1,5 +1,6 @@
 from django.shortcuts import render ,redirect, get_object_or_404
 from .models import Blog
+from django.core.paginator import Paginator
 from django.utils import timezone
 from .forms import BlogForm
 # Create your views here.
@@ -34,7 +35,7 @@ def create(request):
         new_blog = form.save(commit=False)#임시저장
         new_blog.pub_date = timezone.now()
         new_blog.save()
-        return redirect('/blog/' + str(new_blog.id))
+        return redirect('/blog/')
     return redirect('home')
 
 def edit(request,id):
