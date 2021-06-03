@@ -25,13 +25,17 @@
   {{blogs.number}} of {{blogs.paginator.num_pages}}
 </div>
 {% if blogs.has_previous%}
-<div style="display: flex; justify-content: flex-end">
-  <a class="first_page" href="?page=1">처음</a>
-  <a class="previous_page" href="?page={{blogs.previous_page_number}}">이전</a>
-</div>
-{% endif%} {% if blogs.has_next%}
-<div style="display: flex; justify-content: flex-end">
-  <a class="next_page" href="?page={{blogs.next_page_number}}">다음</a>
-  <a class="last_page" href="?page={{blogs.paginator.num_pages}}">마지막</a>
+<div style="display: flex; justify-content: space-between">
+  <div style="display: flex; justify-content: flex-start; margin-left: 10px">
+    <a class="first_page" href="?page=1">처음</a>
+    <a class="previous_page" href="?page={{blogs.previous_page_number}}"
+      >이전</a
+    >
+  </div>
+  {% endif%} {% if blogs.has_next%}
+  <div style="display: flex; justify-content: flex-end; right: 0">
+    <a class="next_page" href="?page={{blogs.next_page_number}}">다음</a>
+    <a class="last_page" href="?page={{blogs.paginator.num_pages}}">마지막</a>
+  </div>
 </div>
 {% endif%} {% endblock%}

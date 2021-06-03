@@ -265,11 +265,17 @@ span {
   border: none;
   background-color: rgb(233, 240, 240);
   padding: 5px;
+  width: 90%;
 }
-.new_contentbox p textarea {
+.new_contentbox p #writer_input {
+  width: 85%;
+  margin-left: 8px;
+}
+.new_contentbox textarea {
   border-radius: 20px;
   border: none;
   background-color: rgb(233, 240, 240);
+  width: 100%;
 }
 .submitbtn {
   display: flex;

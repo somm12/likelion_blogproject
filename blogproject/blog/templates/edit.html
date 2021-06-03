@@ -16,7 +16,8 @@
     <textarea name="body" rows="10" cols="30">{{blogs.body}}</textarea>
     <br />
     <p>
-      사진: <input type="file" name="image " value="{{ details.image.url }}" />
+      사진:
+      <input required type="file" name="image " value="{{ blogs.image.url }}" />
     </p>
     <div class="edit_btn_div">
       <button type="submit" id="edit_btn">제출하기</button>

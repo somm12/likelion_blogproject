@@ -7,7 +7,39 @@
     enctype="multipart/form-data"
   >
     <!--enctype: 사진서버에 넘겨줄 수 있음.-->
-    {%csrf_token%} {{form.as_p}}
+    {%csrf_token%}
+
+    <br />
+    <p>제목: <input style="margin-left: 5px" type="text" name="title" /></p>
+
+    <p>
+      작성자:
+      <input
+        id="writer_input"
+        type="text"
+        readonly
+        name="writer"
+        value="{{user.nickname}}"
+      />
+    </p>
+    본문:
+    <br />
+    <textarea
+      style="
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(233, 240, 240);
+        padding: 5px;
+      "
+      name="body"
+      rows="10"
+      cols="30"
+    ></textarea>
+    <br />
+    <p>
+      사진:
+      <input required style="margin-left: 5px" type="file" name="image " />
+    </p>
     <div class="submitbtn">
       <button class="new_content_submitbtn" type="submit">제출하기</button>
     </div>

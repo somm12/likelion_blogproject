@@ -61,7 +61,7 @@ def create(request):
         new_blog = form.save(commit=False)#임시저장
         new_blog.pub_date = timezone.now()
         new_blog.save()
-        return redirect('/blog/')
+        return redirect('home')
     return redirect('home')
 
 def edit(request,id):
@@ -74,6 +74,7 @@ def update(request,id):
     update_blog.writer = request.POST['writer']
     update_blog.body = request.POST['body']
     update_blog.pub_date = timezone.now()
+  
     update_blog.image = request.FILES['image']
     update_blog.save()
     return redirect('/blog/' + str(update_blog.id))

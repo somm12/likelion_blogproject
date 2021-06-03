@@ -6,6 +6,7 @@
       margin-top: 10px;
       border: 2px solid rgb(219, 214, 214);
       border-radius: 30px;
+      height: 70%;
     "
     id="detail_box"
   >
@@ -23,7 +24,11 @@
       <p class="content">{{details.body}}</p>
       {% if user.nickname == details.writer%}
       <a href="{% url 'edit' details.id%}">수정하기</a>
-      <a href="{% url 'delete' details.id%}">삭제하기</a>
+      <a
+        href="{% url 'delete' details.id%}"
+        onclick="alert('삭제하시겠습니까?')"
+        >삭제하기</a
+      >
       {% else %} {% endif %}
     </div>
   </div>
