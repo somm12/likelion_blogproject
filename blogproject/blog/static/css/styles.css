@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: cursive;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -13,7 +14,7 @@ body {
 #logo {
   font-family: "Ribeye", cursive;
 }
-a {
+.icon_box a {
   text-decoration: none;
   color: black;
 }
@@ -104,6 +105,8 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  height: 80vh;
   margin-top: 10px;
   padding: 0px 10px;
 }
@@ -123,8 +126,8 @@ span {
   height: 500px;
 }
 .bgImage {
-  width: 50%;
-  height: 50%;
+  width: 550px;
+  height: 450px;
   z-index: -1;
   animation: fadeIn 0.5s linear;
   border-radius: 40px;
@@ -192,7 +195,33 @@ span {
   margin-top: 5px;
   font-weight: 400;
 }
+.page_controller a {
+  text-decoration: none;
+}
+.page_controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next_page,
+.last_page,
+.previous_page,
+.first_page {
+  margin-right: 10px;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: bisque;
+  text-decoration: none;
+}
+
 /*detail.html*/
+.detail_entire_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
 #detail_box {
   display: flex;
   width: 50%;
@@ -200,14 +229,17 @@ span {
 }
 #detail_box img {
   border-radius: 20px;
+  width: 400px;
+  height: 400px;
 }
 .detail_content {
   margin-left: 30px;
+  width: 100%;
 }
 .detail_content .content {
   border: 1px solid rgb(185, 181, 181);
   border-radius: 10px;
-  height: 70%;
+  height: 60%;
   padding: 5px;
 }
 .detail_content a {

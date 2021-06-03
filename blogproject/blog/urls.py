@@ -24,7 +24,7 @@ import portfolio.views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('',blog.views.first,name="first"),
-    path('blog/',blog.views.home, name="home"),
+    path('blog',blog.views.home, name="home"),
     path('blog/<int:blog_id>',blog.views.detail, name="detail"),
     path('about_me/',blog.views.about_me, name="about_me"),
     path('about_me/email',blog.views.email, name="email"),
@@ -36,6 +36,8 @@ urlpatterns = [
     path('blog/edit/<str:id>',blog.views.edit,name="edit"),
     path('blog/update/<str:id>',blog.views.update,name="update"),
     path('blog/delete/<str:id>',blog.views.delete, name="delete"),
+
+    path('getmypost',blog.views.getmypost, name="getmypost"),
 
     path('portfolio/',portfolio.views.portfolio,name="portfolio"),
     

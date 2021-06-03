@@ -1,21 +1,20 @@
-{% load static %}
-<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+
 <html lang="en">
+
   <head>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   {% load static %}
+     {% block extrahead %}
     <title>Introduce Myself</title>
+    {% endblock %}
   </head>
- 
+
   <body >
-      <div class="home_icon"><a href="{% url 'first'%}"><i class="fas fa-home fa-2x"></i></a>
-      
-      </div>
+   
 
     <div class="short_info">
-        
+        {% load static %}
       <div class="short_info_box">
         <div class="hello">Hello I am SOMIN AN</div>
         
@@ -65,4 +64,5 @@
         crossorigin="anonymous"
       ></script>
   </body>
-</html>
+
+{% endblock%}

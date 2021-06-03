@@ -9,12 +9,34 @@ from .forms import BlogForm
 def first(request):
     return render(request,'first.html')
 def home(request):
-    blogs = Blog.objects.all() #클래스 안에 있는 object를 변수에 넣는다. => querySet이라고 한다.
-    # paginator = Paginator(blogs,2)
-    # page = request.GET.get('page')
-    # blogs = paginator.get_page(page)
+    blogs = Blog.objects.order_by('-pub_date') #클래스 안에 있는 object를 변수에 넣는다. => querySet이라고 한다.
+    search = request.GET.get('search')
+
+    # if search == 'true':
+    #     author = request.GET.get('writer')
+    #     blogs = Blog.objects.filter(writer=author)
+    #     paginator = Paginator(blogs,10)
+    #     page = request.GET.get('page')
+    #     blogs = paginator.get_page(page)
+    #     return render(request,'home.html',{'blogs':blogs})
+
+    paginator = Paginator(blogs,10)
+    page = request.GET.get('page')
+    blogs = paginator.get_page(page)
     return render(request,'home.html',{'blogs':blogs})
 
+#내가 쓴 글만 가져오기
+def getmypost(request):
+    blogs = Blog.objects.order_by('-pub_date')
+    search = request.GET.get('search')
+    if search == 'true':
+        author = request.GET.get('writer')
+        blogs = Blog.objects.filter(writer=author)
+        paginator = Paginator(blogs,10)
+        page = request.GET.get('page')
+        blogs = paginator.get_page(page)
+        
+    return render(request,'getmypost.html',{'blogs':blogs})
 def detail(request, blog_id):#read
     details = get_object_or_404(Blog, pk = blog_id)
     return render(request, 'detail.html',{'details': details})
